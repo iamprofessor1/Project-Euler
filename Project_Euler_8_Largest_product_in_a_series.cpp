@@ -1,0 +1,107 @@
+//** 𝓙ⲁⲓ Ⲙⲁⲏⲁⲕⲁ𝓵 **//**// हर हर महादेव**//
+#include <bits/stdc++.h>
+#pragma GCC optimize("O3,unroll-loops")
+#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+using namespace std;
+#define ln "\n"
+#define Ln "\n"
+#define ll long long
+#define ull unsigned long long
+#define int long long
+#define double long double
+#define vll vector<ll>
+#define eb emplace_back
+#define pll pair<ll, ll>
+#define vpll vector<pll>
+#define fi first
+#define se second
+#define mod 1000000007
+#define mp make_pair
+#define sz(x) ((ll)(x).size())
+#define set_bits __builtin_popcountll
+#define all(x) (x).begin(), (x).end()
+#define fo(m) for (auto &x : m)
+#define yes cout << "YES" << Ln;
+#define no cout << "NO" << Ln;
+#define queue_max priority_queue<int>
+#define queue_min priority_queue<int, vi, greater<int>>
+#define trace(...) __f(#__VA_ARGS__, __VA_ARGS__)
+#define uniq(v) (v).erase(unique(all(v)), (v).end())
+#define precise(ans) cout << fixed << setprecision(15) << ans << ln
+#define fast_cin()                    \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);                    \
+    cout.tie(NULL)
+
+template <typename Arg1>
+void __f(const char *name, Arg1 &&arg1)
+{
+    cerr << name << " : " << arg1 << endl;
+}
+template <typename Arg1, typename... Args>
+void __f(const char *names, Arg1 &&arg1, Args &&...args)
+{
+    const char *comma = strchr(names + 1, ',');
+    cerr.write(names, comma - names) << " : " << arg1 << " | ";
+    __f(comma + 1, args...);
+}
+
+void solve()
+{
+
+    ll n, k;
+    cin >> n >> k;
+    string s;
+    cin >> s;
+    ll i = 0;
+    ll ans = 1LL;
+    for (; i < k; i++)
+    {
+        ans *= (s[i] - '0');
+    }
+    ll j = 0;
+    ll maxi = ans;
+    for (; i < n; i++)
+    {
+        if (s[j] != '0')
+        {
+            ans = ans / (s[j] - '0');
+        }
+        else
+        {
+            // j = 2 , 3
+            // 7 ,6
+            // importat
+            ans = 1;
+            for (ll p = j + 1; p < j + k; p++)
+            {
+                ans *= ((s[p] - '0'));
+            }
+        }
+        ans *= (s[i] - '0');
+        maxi = max(ans, maxi);
+        j += 1;
+    }
+    cout << maxi << Ln;
+}
+
+int32_t main()
+{
+    fast_cin();
+    ll T = 1;
+    cin >> T;
+    while (T--)
+    {
+        solve();
+    }
+
+    //  ll t;
+    //  cin >> t;
+    //  for(int it=1;it<=t;it++) {
+    //	 cout << "Case #" << it << ": ";
+    //    solve();
+    //  }
+
+    return 0;
+}
+//** Har Har Mahadev **//
