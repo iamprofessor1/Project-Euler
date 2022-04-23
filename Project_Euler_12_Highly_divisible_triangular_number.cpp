@@ -51,7 +51,7 @@ ll cntDivisors(long long n)
     long long i = 0;
     ll cnt = 0;
     // Print all divisor range [1 ,sqrt(n));
-    for (i = 1; i * i <=n; i++)
+    for (i = 1; i * i <= n; i++)
     {
         if (n % i == 0)
         {
@@ -88,6 +88,7 @@ int32_t main()
     for (ll i = 1; i <= 100000; i++)
     {
         ll sum = ((i) * (i + 1)) / 2;
+        //// ******************////
         if ((i % 2) == 0)
         {
             ll temp1 = cntDivisors(i / 2);
@@ -102,6 +103,7 @@ int32_t main()
 
             m[sum] = temp1 * temp2;
         }
+        //// ******************////
         // cout<<"i "<<i<<" | sum->"<< sum<<" "<<"| factor "<<m[sum]<<" "<<Ln;
     }
 
